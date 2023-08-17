@@ -1,0 +1,124 @@
+header {grid-area: header}
+main {grid-area: main}
+aside.main__leftPanel {grid-area: leftPanel}
+section.main__top-feed {grid-area: top-feed}
+section.main__bottom-feed {grid-area: bottom-feed}
+footer {grid-area: footer}
+
+.main__top-feed {
+    margin-left: 10rem;
+    margin-bottom: 2rem;
+    width: 80%;
+}
+.main__bottom-feed {
+    margin-left: 10rem;
+    margin-bottom: 2rem;
+    width: 80%;
+}
+.header-side-items img {
+    height: 3rem;
+    width: auto;
+}
+.header-side-items button {
+    height: 3rem;
+    border-radius: 0.3rem;
+    border: 1px solid black;
+    width: auto;
+}
+html {
+    font-size: 14px;
+}
+button {
+    border-radius: 0.3rem;
+    border: 1px solid;
+    transition: background-color 0.3s ease;
+}
+button:hover{
+    background-color:black;
+    color:white;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+    body {
+        display: grid;
+        grid-template-columns: 4em auto 4em;
+    }
+}
+
+main {
+    display: grid;
+    grid-template-columns: min(20vw, 300px) auto;
+    grid-template-areas:
+        "leftPanel top-feed"
+        "leftPanel top-feed"
+        "leftPanel top-feed"
+        "leftPanel bottom-feed"
+        "leftPanel bottom-feed";
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+header {
+    margin-bottom: 1rem;
+    padding-bottom:1rem;
+}
+body {
+    display: grid;
+    grid-template-columns: 0 auto 0;
+    grid-template-rows: minmax(120px, 20vh) auto 3.5em;
+    grid-template-areas:
+        "header header header"
+        ". main ."
+        "footer footer footer";
+    background-color: #eee;
+    color: #333;
+    transition: background-color 0.3s ease;
+}
+
+body {
+    
+}
+
+a,li a {
+    color: black;
+    text-decoration: none;
+  }
+  
+  a:hover,li a:hover {
+    color:black;
+    text-decoration: underline;
+  }
+
+
+.returnToTop {
+    position: sticky;
+    bottom: 15%;
+    left: 90%;
+    width:4rem;
+    padding-bottom: 1rem;
+    z-index: 100;
+    opacity:0;
+    transform: translateY(100px);
+    transition: all .5s ease;
+}
+.returnToTop img{
+    width:4rem;
+    height:auto;
+}
+    .returnToTop button {
+        background-color: transparent;
+        border:none;
+    }
+    .returnToTop button:hover img{
+        filter: invert(50%);
+    }
+.showBtn {
+    opacity: 1;
+    transform: translateY(0)
+}

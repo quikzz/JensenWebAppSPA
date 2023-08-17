@@ -1,0 +1,98 @@
+﻿.options-modal {
+    display: none;
+    position: fixed;
+    z-index: 9999;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.options-container {
+    background-color: #ffffff;
+    margin: 10% auto;
+    padding: 2rem;
+    border: 1px solid;
+    width: 30%;
+    border-radius: 0.3rem;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+    .options-container header {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .options-container .field {
+        margin-bottom: 1rem;
+    }
+
+    .options-container .label {
+        font-size: 1.2rem;
+        margin-bottom: 0.3rem;
+    }
+
+    .options-container button {
+        width: 100%;
+        padding: 0.5rem;
+        border: solid 1px;
+        border-radius: 0.3rem;
+        transition: background-color 0.3s ease;
+    }
+
+        .options-container button:hover {
+            background-color: inherit;
+            color: inherit;
+        }
+
+    .options-container a {
+        color: inherit;
+        text-decoration: none;
+    }
+
+        .options-container a:hover {
+            text-decoration: underline;
+        }
+
+.toggle-container {
+    position: relative;
+    width: 50px;
+    height: 25px;
+    margin-bottom: 20px;
+}
+
+.toggle-label {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 25px;
+    background-color: #888;
+    cursor: pointer;
+    border-radius: 25px;
+    transition: background-color 0.3s ease;
+}
+
+    .toggle-label:before {
+        content: "";
+        position: absolute;
+        top: 2px;
+        left: 2px;
+        width: 21px;
+        height: 21px;
+        background-color: #fcfcfc;
+        border-radius: 50%;
+        transition: transform 0.3s ease;
+    }
+
+#toggle:checked + .toggle-label {
+    background-color: #55a;
+}
+
+    #toggle:checked + .toggle-label:before {
+        transform: translateX(25px);
+    }
