@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import '@/components/leftpanel/leftpanel.css';
 
 const imgSrc = "./src/assets/images/";
 
