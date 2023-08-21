@@ -13,4 +13,7 @@
   <ItemGroup>
     <None Include=".vscode\launch.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\components\ScrollToTop\" />
+  </ItemGroup>
 </Project>
