@@ -1,7 +1,7 @@
 import React from 'react';
 import './navbar.css';
 import Weather from '@/components/weather/weather.jsx';
-import ScrollToTopButton from '../ScrollToTop/ScrollToTopButton.css';
+
 
 var imgSrc = "./src/assets/images/";
 function navbar () {
@@ -22,9 +22,7 @@ function navbar () {
                           <button id="options-button" onClick={showOptions }>
                               <img src={imgSrc + "settingGrupp2.png"} alt="logo3" className="permainv" />
                           </button>
-                          <button className="scroll-to-top-button" onClick={scrollToTop}>
-                              Scroll to Top
-                          </button>
+
                       </div>
                   </div>
               </div>
@@ -89,8 +87,3 @@ function showOptions() {
     }
 }
 
-function scrollToTop() {
-    return (
-        <ScrollToTopButton/>
-    );
-}
