@@ -12,8 +12,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <header>
             <Navbar />
         </header>
-        
-        <AdScripts />
         <App />
         <Login />
         <Options/>
