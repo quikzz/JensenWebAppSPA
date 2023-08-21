@@ -1,33 +1,72 @@
-var adBanners = [
-    { id: 'adBanner1', images: ["/images/Hands_to_small.webp", "/images/Malmo_basta-kebab.webp"], index: 0 },
-    { id: 'adBanner2', images: ["/images/Malmo_basta-kebab.webp", "/images/Hands_to_small.webp"], index: 0 }
-];
-// This function performs the image rotation for an individual ad banner.
-function rotate(adBanner){
+import React, { Component } from 'react';
+import '@/components/leftpanel/leftpanel.css';
 
-    // Retrieve the HTML element corresponding to the ad banner.
-    var imgElement = document.getElementById(adBanner.id);
+const imgSrc = "./src/assets/images/";
 
-    // Remove the 'show' class from the element, presumably to hide it or prepare for the transition.
-    imgElement.classList.remove('show');
+class Ad extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            adBanner1Index: 0,
+            adBanner2Index: 0,
+        };
+        this.adBanners = [
+            {
+                id: 'adBanner1',
+                images: [
+                    imgSrc + 'Malmo_basta-kebab.webp',
+                    imgSrc + 'Hands_to_small.webp',
+                ]
+            },
+            {
+                id: 'adBanner2',
+                images: [
+                    imgSrc + 'Hands_to_small.webp',
+                    imgSrc + 'Malmo_basta-kebab.webp',
+                ]
+            }
 
-     // After a delay of 1 second (1000 milliseconds), this function executes.
-    setTimeout(function(){
-        imgElement.src = adBanner.images[adBanner.index];
-        imgElement.classList.add('show');
-        adBanner.index++;
+        ];
+    }
 
-         // If the index has reached the end of the images array, reset it to 0 to start over.
-        if(adBanner.index == adBanner.images.length){
-            adBanner.index = 0;
-        }
-    }, 1000);
+    componentDidMount() {
+        // Start the rotation for each ad banner
+        this.adBanners.forEach(adBanner => this.rotate(adBanner));
+    }
 
-    // After a delay of 4 seconds, the rotate function is called again for the same ad banner.
-    // This creates a continuous cycle of image rotation.
-    setTimeout(function(){rotate(adBanner);}, 4 * 1000);
+    rotate(adBanner) {
+        const imgElement = document.getElementById(adBanner.id);
+        imgElement.classList.remove('show');
+
+        setTimeout(() => {
+            imgElement.src = adBanner.images[this.state[adBanner.id + 'Index']];
+            imgElement.classList.add('show');
+
+            this.setState(prevState => {
+                const nextIndex = prevState[adBanner.id + 'Index'] + 1;
+                return {
+                    [adBanner.id + 'Index']: nextIndex === adBanner.images.length ? 0 : nextIndex
+                };
+            });
+
+            setTimeout(() => this.rotate(adBanner), 4 * 1000);
+        }, 1000);
+    }
+
+    render() {
+        return (
+            <div>
+                <div className="adBox">
+                    <div className="ad">
+                        <img id="adBanner1" />
+                    </div>
+                    <div className="ad">
+                        <img id="adBanner2" />
+                    </div>
+                </div>
+            </div>
+        );
+    }
 }
-window.addEventListener('load', function() {
-    adBanners.forEach(rotate);
-});
 
+export default Ad;
