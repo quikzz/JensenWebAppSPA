@@ -1,4 +1,3 @@
-import React from 'react';
 import React, { useState } from 'react';
 import './search.css';
 
@@ -55,7 +54,7 @@ function Sort() {
 
 function Search() {
     return (
-        <div class="searchBox">
+        <div className="searchBox">
             <div>
                 <input type="text" name="searchbar" placeholder="Sök..." />
                 <button type="submit" name="submitSearch">Sök</button>
