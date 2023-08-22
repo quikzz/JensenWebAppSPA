@@ -44,7 +44,7 @@ function loadMore() {
             if (CurrentItem >= boxes.length) {
                 LoadMoreBTN.innerHTML = 'Visa mindre';
                 isShowMore = false;
-            }
+            }               
         } else {
             CurrentItem -= 9;
             for (var i = CurrentItem; i < CurrentItem + 9; i++) {

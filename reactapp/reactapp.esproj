@@ -13,4 +13,8 @@
   <ItemGroup>
     <None Include=".vscode\launch.json" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="src\assets\images\articleimg\" />
+    <Folder Include="src\components\newscards\" />
+  </ItemGroup>
 </Project>
