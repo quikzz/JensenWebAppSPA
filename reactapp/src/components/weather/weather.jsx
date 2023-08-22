@@ -1,3 +1,41 @@
+import React from 'react';
+
+var imgSrc = "./src/assets/images/";
+function weather() {
+  return (
+      <div id="weather" className="weather-button-container">
+          <button id="weatherButton" onClick={showWeather}>
+              <img src={imgSrc + "/weather/clear_day.svg"} alt="WeatherImg not found" id="condition" />
+              <div id="temperature">Temp:</div>
+          </button>
+      </div>
+  );
+}
+
+export default weather;
+
+function showWeather() {
+    if (navigator.geolocation) {
+        navigator.geolocation.getCurrentPosition(
+            async (position) => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
+
+                // Call the model to fetch weather data with coordinates
+                const weatherData = await WeatherModel.fetchWeatherData(latitude, longitude);
+                console.log(weatherData);
+
+                // Update the view with the retrieved weather data
+                WeatherView.updateUI(weatherData);
+            },
+            (error) => {
+                console.error('Error retrieving geolocation:', error);
+            }
+        );
+    }
+    else
+        console.error('Geolocation is not supported by this browser.');
+}
 const weatherCodeMap = new Map();
 weatherCodeMap.set(0, 'Unknown');
 weatherCodeMap.set(1000, 'clear');
@@ -31,7 +69,7 @@ weatherCodeMap.set(8000, 'thunderstorm');
 // weatherModel.js
 const WeatherModel = {
     fetchWeatherData: async (lat, long) => {
-        const apiKey = 'personlig api nyckel'; //alla borde göra en egen för bästa resultat
+        const apiKey = 'QwLHgOoFjKpuhJgwJjXDAzSB1jdtbNrd'; //alla borde göra en egen för bästa resultat
         const mainUrl = "https://api.tomorrow.io/v4/timelines?location=";
         const optionsUrl = `${lat},${long}&fields=temperature,weatherCode&timesteps=1d&units=metric&apikey=${apiKey}`;
         const apiUrl = mainUrl + optionsUrl;
@@ -71,30 +109,3 @@ const WeatherView = {
     },
 };
 
-const weatherButton = document.getElementById('weatherButton');
-
-weatherButton.addEventListener('click', () => {
-    // Request user's geolocation
-    if (navigator.geolocation) {
-        navigator.geolocation.getCurrentPosition(
-            async (position) => {
-                const latitude = position.coords.latitude;
-                const longitude = position.coords.longitude;
-                const temperatureElement = document.getElementById('temperature');
-                //temperatureElement.textContent = `lat: ${latitude} long: ${longitude}`;
-                
-                // Call the model to fetch weather data with coordinates
-                const weatherData = await WeatherModel.fetchWeatherData(latitude, longitude);
-                console.log(weatherData);
-                // Update the view with the retrieved weather data
-                WeatherView.updateUI(weatherData);
-            },
-            (error) => {
-                console.error('Error retrieving geolocation:', error);
-            }
-        );
-    }
-    else {
-        console.error('Geolocation is not supported by this browser.');
-    }
-});
