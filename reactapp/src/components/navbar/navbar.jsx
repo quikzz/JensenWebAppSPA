@@ -2,6 +2,7 @@ import React from 'react';
 import './navbar.css';
 import Weather from '@/components/weather/weather.jsx';
 
+
 var imgSrc = "./src/assets/images/";
 function navbar() {
   return (
@@ -26,6 +27,7 @@ function navbar() {
                           <button id="options-button">
                               <img src={imgSrc + "settingGrupp2.png"} alt="logo3" className="permainv" />
                           </button>
+
                       </div>
                   </div>
               </div>
@@ -58,6 +60,7 @@ function navbar() {
   );
 }
 
+
 export default navbar;
 
 function showLogin() {
@@ -88,3 +91,4 @@ function showOptions() {
         }
     }
 }
+
