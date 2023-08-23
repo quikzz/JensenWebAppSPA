@@ -13,13 +13,18 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <header>
             <Navbar />
         </header>
-        <aside>
-            <Leftpanel />
-        </aside>
-        <App />
+        <main>
+            <aside className="main__leftPanel">
+                <Leftpanel />
+            </aside>
+            <section className="main__top-feed">
+                <App />
+            </section>
+        </main>
+        <footer>
+            <Footer />
+        </footer>
         <Login />
-        <Options/>
-
-        <Footer />
+        <Options />
   </React.StrictMode>,
 )

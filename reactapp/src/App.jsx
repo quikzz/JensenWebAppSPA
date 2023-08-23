@@ -48,7 +48,6 @@ export default class App extends Component {
         return (
             <div>
                 <h1 id="tabelLabel">Article List</h1>
-                <p>This component demonstrates fetching data from the server.</p>
                 {contents}
             </div>
         );
