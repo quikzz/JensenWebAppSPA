@@ -4,7 +4,7 @@ import Weather from '@/components/weather/weather.jsx';
 
 
 var imgSrc = "./src/assets/images/";
-function navbar () {
+function navbar() {
   return (
       <nav className="navbar ">
           <div className="container-navbar">
@@ -12,14 +12,19 @@ function navbar () {
                   <div className="header-side-items">
                       <div className="nav-head-left">
                           <div className="datetime" id="datetime">{new Date().toLocaleDateString("en-GB")}</div>
-                          <Weather/>
+                          <div id="weather" className="weather-button-container">
+                              <button id="weatherButton">
+                                  <img src={imgSrc + "weather/clear_day.svg"} alt="WeatherImg not found" id="condition" />
+                                  <div id="temperature">Temp:</div>
+                              </button>
+                          </div>
                       </div>
                       <div className="nav-head-center">
                           <img src={imgSrc + "logoNameGrupp2.png"}alt="logo1" id="settings-logo" />
                       </div>
                       <div className="nav-head-right">
-                          <button className="login-button" id="login-button" onClick={showLogin }>Logga in</button>
-                          <button id="options-button" onClick={showOptions }>
+                          <button className="login-button" id="login-button">Logga in</button>
+                          <button id="options-button">
                               <img src={imgSrc + "settingGrupp2.png"} alt="logo3" className="permainv" />
                           </button>
 

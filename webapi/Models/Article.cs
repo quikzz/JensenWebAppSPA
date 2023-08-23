@@ -7,6 +7,7 @@
         public string Link { get; set; }
         public DateTime Published { get; set; }
         public List<string> Topic { get; set; }
+        public string Image { get; set; }
     }
 }
 

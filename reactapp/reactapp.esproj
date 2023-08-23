@@ -14,6 +14,11 @@
     <None Include=".vscode\launch.json" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
+    <Folder Include="src\assets\images\articleimg\" />
+    <Folder Include="src\components\newscards\" />
+=======
     <Folder Include="src\components\ScrollToTop\" />
+>>>>>>> 4c70c70f558747b1a55af0b1e42fec02f4013d75
   </ItemGroup>
 </Project>
