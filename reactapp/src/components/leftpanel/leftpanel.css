@@ -1,55 +1,9 @@
 ﻿.leftPanel {
     position: sticky;
     top: 10%;
-    margin-left: 5rem;
+    margin-left: 2rem;
     align-items: center;
     min-width: 20rem;
     max-width: 40rem;
     width: 100%;
 }
-
-.searchBox {
-    width: inherit;
-    border: 1px solid;
-    border-radius: 1rem;
-    padding: 0px 1rem 1rem 1rem;
-}
-
-    .searchBox input[type=text] {
-        width: 75%;
-        border-radius: 5px;
-        border: 1px solid black;
-        margin: 10px;
-    }
-
-    .searchBox div {
-        margin: 0.1rem;
-    }
-
-.adBox {
-    width: inherit;
-    margin-top: 1rem;
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-    height: 100%;
-}
-
-    .adBox img, .adBox video {
-        width: 18rem;
-        margin-bottom: 20px;
-    }
-
-    .adBox img {
-        height: 15rem;
-        opacity: 0;
-        transition: opacity 1s;
-    }
-
-    .adBox video {
-        height: auto;
-    }
-
-        .adBox img.show, .adBox video.show {
-            opacity: 1;
-        }

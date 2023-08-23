@@ -1,6 +1,5 @@
 import React from 'react';
 import './test.css';
-im
 
 function ReactComponent() {
   return (

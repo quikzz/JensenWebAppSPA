@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import './ads.css'
 
 const imgSrc = "./src/assets/images/";
 

@@ -66,6 +66,7 @@ export default class App extends Component {
 
         return (
             <div>
+                <h1 id="tabelLabel">Article List</h1>
                 {contents}
             </div>
         );

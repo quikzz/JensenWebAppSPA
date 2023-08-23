@@ -1,0 +1,27 @@
+.adBox {
+    width: inherit;
+    margin-top: 1rem;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    height: 100%;
+}
+
+    .adBox img, .adBox video {
+        width: 18rem;
+        margin-bottom: 20px;
+    }
+
+    .adBox img {
+        height: 15rem;
+        opacity: 0;
+        transition: opacity 1s;
+    }
+
+    .adBox video {
+        height: auto;
+    }
+
+        .adBox img.show, .adBox video.show {
+            opacity: 1;
+        }

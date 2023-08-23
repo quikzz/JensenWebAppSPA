@@ -1,11 +1,11 @@
 import React from 'react';
 
-var imgSrc = "./src/assets/images/";
+var imgSrcGlob = "./src/assets/images/";
 function weather() {
   return (
       <div id="weather" className="weather-button-container">
           <button id="weatherButton" onClick={showWeather}>
-              <img src={imgSrc + "/weather/clear_day.svg"} alt="WeatherImg not found" id="condition" />
+              <img src={imgSrcGlob + "/weather/clear_day.svg"} alt="WeatherImg not found" id="condition" />
               <div id="temperature">Temp:</div>
           </button>
       </div>
@@ -105,7 +105,7 @@ const WeatherView = {
         // Update DOM elements with weather information
         temperatureElement.textContent = `${Math.round(weatherInfo[0].temperature)}\u00B0C`;
         const imgSrc = weatherCodeMap.get(weatherInfo[0].weatherCode);
-        conditionElement.src = `images/weather/${imgSrc}.svg`;
+        conditionElement.src = imgSrcGlob + imgSrc+'.svg';
     },
 };
 
