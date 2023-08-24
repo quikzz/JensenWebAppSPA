@@ -7,6 +7,7 @@ import Login from './components/loginform/login.jsx'
 import Options from './components/optionsform/options.jsx'
 import Footer from './components/footer/footer.jsx'
 import Leftpanel from './components/leftpanel/leftpanel.jsx'
+import ScrollToTopButton from './components/ScrollToTop/ScrollToTopButton.jsx'
 
 //import './site.css'
 
@@ -28,5 +29,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         </footer>
         <Login />
         <Options />
+        <ScrollToTopButton />
   </React.StrictMode>,
 )

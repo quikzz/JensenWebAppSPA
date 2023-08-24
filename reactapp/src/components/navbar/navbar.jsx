@@ -1,6 +1,7 @@
 import React from 'react';
 import './navbar.css';
 import Weather from '@/components/weather/weather.jsx';
+import DarkMode from '@/components/darkmode/DarkMode.jsx';
 
 
 var imgSrc = "./src/assets/images/";
@@ -23,6 +24,9 @@ function navbar() {
                           <img src={imgSrc + "logoNameGrupp2.png"}alt="logo1" id="settings-logo" />
                       </div>
                       <div className="nav-head-right">
+                          <button type="button" class="btn btn-primary">
+                              <DarkMode />
+                          </button>
                           <button className="login-button" id="login-button">Logga in</button>
                           <button id="options-button">
                               <img src={imgSrc + "settingGrupp2.png"} alt="logo3" className="permainv" />

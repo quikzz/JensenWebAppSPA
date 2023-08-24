@@ -16,6 +16,5 @@
   <ItemGroup>
     <Folder Include="src\assets\images\articleimg\" />
     <Folder Include="src\components\newscards\" />
-    <Folder Include="src\components\ScrollToTop\" />
   </ItemGroup>
 </Project>
