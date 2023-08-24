@@ -1,47 +1,21 @@
-using webapi.Data;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
-using Microsoft.IdentityModel.Tokens;
-using System.Text;
-
 var builder = WebApplication.CreateBuilder(args);
-ConfigurationManager configuration = builder.Configuration;
 
 // Add services to the container.
 
-// For Entity Framework
-builder.Services.AddDbContext<ApplicationDbContext>(options => options.UseSqlite(configuration.GetConnectionString("ConnStr")));
+builder.Services.AddControllers();
 
-// For Identity
-builder.Services.AddIdentity<IdentityUser, IdentityRole>()
-    .AddEntityFrameworkStores<ApplicationDbContext>()
-    .AddDefaultTokenProviders();
-
-// Adding Authentication
-builder.Services.AddAuthentication(options =>
+// Add CORS service and configure it
+builder.Services.AddCors(options =>
 {
-    options.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
-    options.DefaultScheme = JwtBearerDefaults.AuthenticationScheme;
-})
-
-// Adding Jwt Bearer
-.AddJwtBearer(options =>
-{
-    options.SaveToken = true;
-    options.RequireHttpsMetadata = false;
-    options.TokenValidationParameters = new TokenValidationParameters()
-    {
-        ValidateIssuer = true,
-        ValidateAudience = true,
-        ValidAudience = configuration["JWT:ValidAudience"],
-        ValidIssuer = configuration["JWT:ValidIssuer"],
-        IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(configuration["JWT:Secret"]))
-    };
+    options.AddDefaultPolicy(
+        builder =>
+        {
+            builder.WithOrigins("https://localhost:5173") // This is assuming your React app is running on this port. Adjust if needed.
+                   .AllowAnyHeader()
+                   .AllowAnyMethod();
+        });
 });
 
-builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
@@ -57,8 +31,9 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// Authentication & Authorization
-app.UseAuthentication();
+// Use CORS middleware
+app.UseCors();
+
 app.UseAuthorization();
 
 app.MapControllers();
