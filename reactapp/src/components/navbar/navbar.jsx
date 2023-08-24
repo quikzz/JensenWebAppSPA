@@ -24,7 +24,7 @@ function navbar() {
                           <img src={imgSrc + "logoNameGrupp2.png"}alt="logo1" id="settings-logo" />
                       </div>
                       <div className="nav-head-right">
-                          <button id="DarkMode">
+                          <button type="button" class="btn btn-primary">
                               <DarkMode />
                           </button>
                           <button className="login-button" id="login-button">Logga in</button>
