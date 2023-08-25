@@ -1,7 +1,7 @@
-import React from 'react';
+ï»¿import React from 'react';
 import './navbar.css';
 import Weather from '@/components/weather/weather.jsx';
-import DarkMode from '@/components/darkmode/DarkMode.jsx';
+import Settings from '@/components/optionsform/offcanvas.jsx';
 
 
 var imgSrc = "./src/assets/images/";
@@ -24,14 +24,7 @@ function navbar() {
                           <img src={imgSrc + "logoNameGrupp2.png"}alt="logo1" id="settings-logo" />
                       </div>
                       <div className="nav-head-right">
-                          <button type="button" class="btn btn-primary">
-                              <DarkMode />
-                          </button>
-                          <button className="login-button" id="login-button">Logga in</button>
-                          <button id="options-button">
-                              <img src={imgSrc + "settingGrupp2.png"} alt="logo3" className="permainv" />
-                          </button>
-
+                          <Settings />
                       </div>
                   </div>
               </div>
@@ -47,10 +40,10 @@ function navbar() {
                           <a id="nav-link-Optional" className="nav-link" href="#">Kultur</a>
                       </li>
                       <li className="nav-item">
-                          <a id="nav-link-Optional" className="nav-link" href="#">Nöje</a>
+                          <a id="nav-link-Optional" className="nav-link" href="#">NÃ¶je</a>
                       </li>
                       <li className="dropdown">
-                          <a href="#" className="drop-link">Väder</a>
+                          <a href="#" className="drop-link">VÃ¤der</a>
                           <div className="dropdown-content">
                               <div id="forecast" className="forecast-container"></div>
                               <div id="gps-info"></div>
@@ -67,32 +60,4 @@ function navbar() {
 
 export default navbar;
 
-function showLogin() {
-    // Get the modal and the login button
-    var modal = document.getElementById('login-modal');
-    var btn = document.getElementById('login-button');
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-}
-function showOptions() {
-    // Get the modal and the options button
-    var modal = document.getElementById('options-modal');
-    var btn = document.getElementById('options-button');
-    btn.onclick = function () {
-        modal.style.display = "block";
-    }
-    // When the user clicks anywhere outside of the modal, close it
-    window.onclick = function (event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    }
-}
 
