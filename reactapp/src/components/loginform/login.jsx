@@ -1,31 +1,39 @@
-import React from 'react';
-import './loginform.css'
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import './loginform.css';
 
-function login() {
-  return (
-      <div className="login-modal" id="login-modal">
-          <div className="login-container" id="login-box">
-              <header>Logga in</header>
-              <div className="form-outer">
-                  <form action="#">
-                      <div className="page">
-                          <div className="field">
-                              <div className="label">Email</div>
-                              <input type="text" name="email" placeholder="Email" required />
-                              <div className="label">Lösenord</div>
-                              <input type="password" name="password" placeholder="Lösenord" required />
-                              <a href="#">Glömt lösenord?</a>
-                              <div className="field">
-                                  <button>Logga in</button>
-                                  <p>Inget konto? <a href="#">Skapa ett nu!</a></p>
-                              </div>
-                          </div>
-                      </div>
-                  </form>
-              </div>
-          </div>
-      </div>
-  );
+function LoginButton({ toggleLogin, showLogin }) {
+    return (
+        <div>
+            <Button variant="primary" onClick={toggleLogin}>
+                Logga in
+            </Button>
+            <div className={`form-container ${showLogin ? 'active' : ''}`}>
+                <Login />
+            </div>
+        </div>
+    );
 }
 
-export default login;
+function Login({ showCreateAccountForm }) {
+    return (
+        <Form>
+            <Form.Group className="mb-3" controlId="formBasicEmail">
+                <Form.Label>Email</Form.Label>
+                <Form.Control type="email" placeholder="Email" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicPassword">
+                <Form.Label>Lösenord</Form.Label>
+                <Form.Control type="password" placeholder="Lösenord" />
+            </Form.Group>
+            <Form.Group className="mb-3" controlId="formBasicCheckbox">
+                <Form.Check type="checkbox" label="Kom ihåg mig" />
+            </Form.Group>
+            <Button variant="primary" type="submit">
+                Logga in
+            </Button>
+        </Form>
+    );
+}
+
+export default LoginButton;
