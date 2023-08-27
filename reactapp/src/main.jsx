@@ -26,7 +26,6 @@ ReactDOM.createRoot(document.getElementById('root')).render(
         <footer>
             <Footer />
         </footer>
-        <Login />
         <ScrollToTopButton />
   </React.StrictMode>,
 )
