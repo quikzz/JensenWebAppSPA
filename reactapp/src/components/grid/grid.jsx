@@ -7,6 +7,7 @@ import Navigationbar from '@/components/navbar/navbar.jsx'
 import Ads from '@/components/ads/adScript.jsx'
 import Footer from '@/components/footer/footer.jsx'
 import App from '@/App.jsx'
+import Weather from'@/components/weather/weather.jsx'
 
 function Grid() {
     return (
@@ -27,8 +28,7 @@ function Grid() {
 
                     </Col>
                     <Col md={2} className="right-panel">
-                        har var det tomt
-                    
+      
                     </Col>
                 </Row>
             </Container>
