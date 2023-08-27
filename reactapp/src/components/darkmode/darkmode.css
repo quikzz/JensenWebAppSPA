@@ -1,7 +1,6 @@
 ﻿.dark-mode a {
     color: white;
 }
-
 .dark-mode {
     background-color: #222222;
     color: #fff;
@@ -9,7 +8,6 @@
 .dark-mode-logo {
     filter: invert(100%);
 }
-
 .dark-mode-linknav {
     color: whitesmoke;
     text-decoration: none;
@@ -19,4 +17,12 @@
 .darkmode-popup{
     background-color:inherit;
     color:inherit;
+}
+.dark-mode .navbar {
+    background-color: #222220 !important;
+    color: white !important;
+}
+
+.dark-mode .navbar-nav .nav-link {
+    color: whitesmoke !important;
 }
