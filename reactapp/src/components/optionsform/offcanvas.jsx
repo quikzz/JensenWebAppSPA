@@ -14,7 +14,7 @@ function Settings() {
 
     return (
         <>
-            <Button variant="primary" onClick={handleShow}>
+            <Button variant="outline-dark" onClick={handleShow}>
                 Inställningar
             </Button>
 

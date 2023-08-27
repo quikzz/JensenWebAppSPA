@@ -8,7 +8,7 @@ import './loginform.css';
 function CreateAccountButton({ toggleCreateAccount, showCreateAccount }) {
     return (
         <div>
-            <Button variant="primary" onClick={toggleCreateAccount}>
+            <Button variant="outline-dark" onClick={toggleCreateAccount}>
                 Skapa konto
             </Button>
             <div className={`form-container ${showCreateAccount ? 'active' : ''}`}>
@@ -80,7 +80,7 @@ function CreateAccount() {
                 <Form.Check type="checkbox" label="Godkänn villkoren" />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="outline-dark" type="submit">
                 Skapa konto
             </Button>
         </Form>

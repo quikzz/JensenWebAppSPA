@@ -1,11 +1,11 @@
 import React from 'react';
 
-var imgSrcGlob = "./src/assets/images/";
+var imgSrcGlob = "@/assets/images/weather/";
 function weather() {
   return (
       <div id="weather" className="weather-button-container">
           <button id="weatherButton" onClick={showWeather}>
-              <img src={imgSrcGlob + "/weather/clear_day.svg"} alt="WeatherImg not found" id="condition" />
+              <img src={imgSrcGlob + "clear_day.svg"} alt="WeatherImg not found" id="condition" />
               <div id="temperature">Temp:</div>
           </button>
       </div>
