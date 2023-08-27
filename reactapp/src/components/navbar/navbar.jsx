@@ -33,6 +33,7 @@ function navbar() {
                         <form className="d-flex mx-auto p-2 " role="search">
                             <input className="form-control  " type="search" placeholder="S&#246;k" aria-label="Search"></input>
                             <button className="btn btn-outline-success" type="submit">S&#246;k</button>
+                            <Settings />
                         </form>
                     </div>
                 </div>
