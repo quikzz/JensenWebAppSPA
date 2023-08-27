@@ -24,5 +24,10 @@
 }
 
 .dark-mode .navbar-nav .nav-link {
-    color: whitesmoke !important;
+    color: whitesmoke;
+}
+
+.dark-mode .card {
+    background-color: #222220;
+    color: white;
 }
