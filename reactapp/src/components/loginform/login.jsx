@@ -5,7 +5,7 @@ import './loginform.css';
 function LoginButton({ toggleLogin, showLogin }) {
     return (
         <div>
-            <Button variant="primary" onClick={toggleLogin}>
+            <Button variant="outline-dark" onClick={toggleLogin}>
                 Logga in
             </Button>
             <div className={`form-container ${showLogin ? 'active' : ''}`}>
@@ -29,7 +29,7 @@ function Login({ showCreateAccountForm }) {
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
                 <Form.Check type="checkbox" label="Kom ihåg mig" />
             </Form.Group>
-            <Button variant="primary" type="submit">
+            <Button variant="outline-dark" type="submit">
                 Logga in
             </Button>
         </Form>

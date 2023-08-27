@@ -8,7 +8,7 @@ import './loginform.css';
 function CreateAccountButton({ toggleCreateAccount, showCreateAccount }) {
     return (
         <div>
-            <Button variant="primary" onClick={toggleCreateAccount}>
+            <Button variant="outline-dark" onClick={toggleCreateAccount}>
                 Skapa konto
             </Button>
             <div className={`form-container ${showCreateAccount ? 'active' : ''}`}>
@@ -20,7 +20,6 @@ function CreateAccountButton({ toggleCreateAccount, showCreateAccount }) {
 
 function CreateAccount() {
     const [formData, setFormData] = useState({
-        username: '',
         email: '',
         password: '',
         confirmPassword: ''
@@ -44,17 +43,6 @@ function CreateAccount() {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-                <Form.Label>Användarnamn</Form.Label>
-                <Form.Control
-                    type="text"
-                    placeholder="Användarnamn"
-                    name="username"
-                    value={formData.username}
-                    onChange={handleChange}
-                />
-            </Form.Group>
-
             <Form.Group className="mb-3">
                 <Form.Label>Email</Form.Label>
                 <Form.Control
@@ -92,7 +80,7 @@ function CreateAccount() {
                 <Form.Check type="checkbox" label="Godkänn villkoren" />
             </Form.Group>
 
-            <Button variant="primary" type="submit">
+            <Button variant="outline-dark" type="submit">
                 Skapa konto
             </Button>
         </Form>
