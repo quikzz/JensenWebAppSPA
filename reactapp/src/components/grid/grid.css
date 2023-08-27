@@ -10,7 +10,6 @@
 
 .left-panel, .right-panel, .main-panel {
     padding: 20px;
-    border: 1px solid #ccc;
     height: 100%;
 }
 
@@ -18,5 +17,4 @@ footer {
     background-color: #f7f7f7;
     padding: 10px;
     text-align: center;
-    border-top: 1px solid #ccc;
 }
