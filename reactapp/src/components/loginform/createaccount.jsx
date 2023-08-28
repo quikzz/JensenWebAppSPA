@@ -1,4 +1,4 @@
-import { useState } from 'react';
+ï»¿import { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './loginform.css';
@@ -55,10 +55,10 @@ function CreateAccount() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>Lösenord</Form.Label>
+                <Form.Label>LÃ¶senord</Form.Label>
                 <Form.Control
                     type="password"
-                    placeholder="Lösenord"
+                    placeholder="LÃ¶senord"
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
@@ -66,10 +66,10 @@ function CreateAccount() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Label>Bekräfta lösenord</Form.Label>
+                <Form.Label>BekrÃ¤fta lÃ¶senord</Form.Label>
                 <Form.Control
                     type="password"
-                    placeholder="Bekräfta lösenord"
+                    placeholder="BekrÃ¤fta lÃ¶senord"
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}
@@ -77,7 +77,7 @@ function CreateAccount() {
             </Form.Group>
 
             <Form.Group className="mb-3">
-                <Form.Check type="checkbox" label="Godkänn villkoren" />
+                <Form.Check type="checkbox" label="GodkÃ¤nn villkoren" />
             </Form.Group>
 
             <Button variant="outline-dark" type="submit">

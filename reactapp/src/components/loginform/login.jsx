@@ -1,4 +1,4 @@
-import Button from 'react-bootstrap/Button';
+ï»¿import Button from 'react-bootstrap/Button';
 import Form from 'react-bootstrap/Form';
 import './loginform.css';
 
@@ -23,11 +23,11 @@ function Login({ showCreateAccountForm }) {
                 <Form.Control type="email" placeholder="Email" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Lösenord</Form.Label>
-                <Form.Control type="password" placeholder="Lösenord" />
+                <Form.Label>LÃ¶senord</Form.Label>
+                <Form.Control type="password" placeholder="LÃ¶senord" />
             </Form.Group>
             <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Kom ihåg mig" />
+                <Form.Check type="checkbox" label="Kom ihÃ¥g mig" />
             </Form.Group>
             <Button variant="outline-dark" type="submit">
                 Logga in
