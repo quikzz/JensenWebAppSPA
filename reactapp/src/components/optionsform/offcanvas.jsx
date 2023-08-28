@@ -1,4 +1,4 @@
-import { useState } from 'react';
+Ôªøimport { useState } from 'react';
 import Button from 'react-bootstrap/Button';
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import DarkMode from '@/components/darkmode/DarkMode.jsx';
@@ -15,12 +15,12 @@ function Settings() {
     return (
         <>
             <Button variant="outline-dark" onClick={handleShow}>
-                Inst‰llningar
+                Inst√§llningar
             </Button>
 
             <Offcanvas show={show} onHide={handleClose} placement='end'>
                 <Offcanvas.Header closeButton>
-                <Offcanvas.Title>Inst‰llningar</Offcanvas.Title>
+                <Offcanvas.Title>Inst√§llningar</Offcanvas.Title>
                 </Offcanvas.Header>
                 <Offcanvas.Body>
                     <ul>
