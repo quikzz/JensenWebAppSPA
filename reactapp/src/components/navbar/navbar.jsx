@@ -8,7 +8,8 @@ var imgSrc = "./src/assets/images/";
 function navbar() {
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
-
+            <Weather />
+            <a className="logo" href="/index"><img src={imgSrc + "logoNameGrupp2.png"} /></a>
                 <div className="container-fluid">
                     <button className="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo03" aria-controls="navbarTogglerDemo03" aria-expanded="false" aria-label="Toggle navigation">
                         <span className="navbar-toggler-icon"></span>

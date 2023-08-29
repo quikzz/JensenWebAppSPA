@@ -7,13 +7,12 @@ import Navigationbar from '@/components/navbar/navbar.jsx'
 import Ads from '@/components/ads/adScript.jsx'
 import Footer from '@/components/footer/footer.jsx'
 import App from '@/App.jsx'
-import Weather from'@/components/weather/weather.jsx'
 
 function Grid() {
     return (
         <div className="app-container">
             <Navbar bg="light" variant="light">
-                <Navbar.Brand href="#home">
+                <Navbar.Brand>
                     <Navigationbar />
                 </Navbar.Brand>
             </Navbar>
