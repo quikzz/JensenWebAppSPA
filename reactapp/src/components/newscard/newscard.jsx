@@ -14,7 +14,7 @@ const NewsCard = ({ articles, visibleArticles, loadMore, loadLess, loading }) =>
             ) : (
                 <div className="container">
                     <div className="row">
-                        {articles.slice(0, visibleArticles).map(article => (
+                            {articles.slice(0, visibleArticles).map(article => (
                             <div className="col-md-4" key={article.title}>
                                 <Card style={{ width: '18rem' }}>
                                     <Card.Img variant="top" src={article.Image}  />
