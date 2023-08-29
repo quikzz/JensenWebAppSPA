@@ -4,7 +4,6 @@ import Weather from '@/components/weather/weather.jsx';
 import Settings from '@/components/optionsform/offcanvas.jsx';
 import Navbar from 'react-bootstrap/Navbar';
 
-
 var imgSrc = "./src/assets/images/";
 function navbar() {
     return (
@@ -19,7 +18,7 @@ function navbar() {
                             <li className="nav-item col-md ">
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link fs-3 me-4" href="#">Sport</a>
+                            <a className="nav-link fs-3 me-4" href="#">Sport</a>
                             </li>
                             <li className="nav-item fs-3 me-4">
                                 <a className="nav-link" href="#">N&#246;je</a>
