@@ -1,8 +1,10 @@
 ﻿import React from 'react';
 import './navbar.css';
 import Weather from '@/components/weather/weather.jsx';
-import Settings from '@/components/optionsform/offcanvas.jsx';
+import OffCanvasLogin from '@/components/optionsform/offcanvas.jsx';
 import Navbar from 'react-bootstrap/Navbar';
+
+import DarkMode from '@/components/darkmode/Darkmode.jsx';
 
 
 var imgSrc = "./src/assets/images/";
@@ -34,7 +36,9 @@ function navbar() {
                         <form className="d-flex mx-auto p-2 " role="search">
                             <input className="form-control  " type="search" placeholder="S&#246;k" aria-label="Search"></input>
                             <button className="btn btn-outline-success" type="submit">S&#246;k</button>
-                            <Settings />
+                        <OffCanvasLogin />
+                        <DarkMode />
+
                         </form>
                     </div>
                 </div>
