@@ -2,3 +2,30 @@
 ul{
     list-style-type: none;
 }
+
+
+.form-container {
+    position: relative;
+    height: 100%;
+}
+
+.form-content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: opacity 0.3s ease-in-out;
+}
+
+    .form-content.hide {
+        opacity: 0;
+        pointer-events: none;
+        z-index: -1;
+    }
+
+    .form-content.show {
+        opacity: 1;
+        pointer-events: all;
+        z-index: 1;
+    }
