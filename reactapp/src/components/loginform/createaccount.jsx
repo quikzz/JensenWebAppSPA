@@ -1,22 +1,5 @@
-import { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Form from 'react-bootstrap/Form';
-import './loginform.css';
-
-
-
-function CreateAccountButton({ toggleCreateAccount, showCreateAccount }) {
-    return (
-        <div>
-            <Button variant="outline-dark" onClick={toggleCreateAccount}>
-                Skapa konto
-            </Button>
-            <div className={`form-container ${showCreateAccount ? 'active' : ''}`}>
-                <CreateAccount />
-            </div>
-        </div>
-    );
-}
+ï»¿import React, { useState } from 'react';
+import { Form, Button, FloatingLabel } from 'react-bootstrap';
 
 function CreateAccount() {
     const [formData, setFormData] = useState({
@@ -43,8 +26,11 @@ function CreateAccount() {
 
     return (
         <Form onSubmit={handleSubmit}>
-            <Form.Group className="mb-3">
-                <Form.Label>Email</Form.Label>
+            <FloatingLabel
+                controlId="floatingInputEmail"
+                label="Email"
+                className="mb-3"
+            >
                 <Form.Control
                     type="email"
                     placeholder="Email"
@@ -52,39 +38,48 @@ function CreateAccount() {
                     value={formData.email}
                     onChange={handleChange}
                 />
-            </Form.Group>
+            </FloatingLabel>
 
-            <Form.Group className="mb-3">
-                <Form.Label>Lösenord</Form.Label>
+            <FloatingLabel
+                controlId="floatingInputPassword"
+                label="LÃ¶senord"
+                className="mb-3"
+            >
                 <Form.Control
                     type="password"
-                    placeholder="Lösenord"
+                    placeholder="LÃ¶senord"
                     name="password"
                     value={formData.password}
                     onChange={handleChange}
                 />
-            </Form.Group>
+            </FloatingLabel>
 
-            <Form.Group className="mb-3">
-                <Form.Label>Bekräfta lösenord</Form.Label>
+            <FloatingLabel
+                controlId="floatingConfirmPassword"
+                label="BekrÃ¤fta lÃ¶senord"
+                className="mb-3"
+            >
                 <Form.Control
                     type="password"
-                    placeholder="Bekräfta lösenord"
+                    placeholder="BekrÃ¤fta lÃ¶senord"
                     name="confirmPassword"
                     value={formData.confirmPassword}
                     onChange={handleChange}
                 />
-            </Form.Group>
+            </FloatingLabel>
 
             <Form.Group className="mb-3">
-                <Form.Check type="checkbox" label="Godkänn villkoren" />
+                <Form.Check type="checkbox" label="GodkÃ¤nn villkoren" />
             </Form.Group>
 
-            <Button variant="outline-dark" type="submit">
+            <Button variant="outline-primary" type="submit">
                 Skapa konto
+            </Button>
+            <Button variant="outline-dark" type="button">
+                Avbryt
             </Button>
         </Form>
     );
 }
 
-export default CreateAccountButton;
+export default CreateAccount;

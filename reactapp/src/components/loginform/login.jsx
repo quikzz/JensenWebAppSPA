@@ -1,39 +1,40 @@
-import Button from 'react-bootstrap/Button';
+ï»¿import React from 'react';
+import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
-import './loginform.css';
+import Button from 'react-bootstrap/Button';
 
-function LoginButton({ toggleLogin, showLogin }) {
+function Login({ toggleCreateAccount }) {
+
+    const email = '';
+    const password = '';
+
     return (
-        <div>
-            <Button variant="outline-dark" onClick={toggleLogin}>
+        <>
+            <FloatingLabel
+                controlId="floatingInput"
+                label="Email"
+                className="mb-3"
+            >
+                <Form.Control type="email" placeholder="name@example.com" />
+            </FloatingLabel>
+
+            <FloatingLabel
+                controlId="floatingPassword"
+                label="LÃ¶senord"
+                className="mb-3"
+            >
+                <Form.Control type="password" placeholder="Password" />
+            </FloatingLabel>
+
+            <Button variant="outline-primary" type="submit">
                 Logga in
             </Button>
-            <div className={`form-container ${showLogin ? 'active' : ''}`}>
-                <Login />
-            </div>
-        </div>
+
+            <Button variant="outline-secondary" onClick={toggleCreateAccount}>
+                Skapa konto
+            </Button>
+        </>
     );
 }
 
-function Login({ showCreateAccountForm }) {
-    return (
-        <Form>
-            <Form.Group className="mb-3" controlId="formBasicEmail">
-                <Form.Label>Email</Form.Label>
-                <Form.Control type="email" placeholder="Email" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicPassword">
-                <Form.Label>Lösenord</Form.Label>
-                <Form.Control type="password" placeholder="Lösenord" />
-            </Form.Group>
-            <Form.Group className="mb-3" controlId="formBasicCheckbox">
-                <Form.Check type="checkbox" label="Kom ihåg mig" />
-            </Form.Group>
-            <Button variant="outline-dark" type="submit">
-                Logga in
-            </Button>
-        </Form>
-    );
-}
-
-export default LoginButton;
+export default Login;
