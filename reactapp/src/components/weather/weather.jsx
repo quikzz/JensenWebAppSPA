@@ -1,6 +1,7 @@
 import React from 'react';
+import './weather.css'
 
-var imgSrcGlob = "@/assets/images/weather/";
+var imgSrcGlob = "./src/assets/images/weather/";
 function weather() {
   return (
       <div id="weather" className="weather-button-container">
