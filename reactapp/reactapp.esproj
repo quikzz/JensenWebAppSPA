@@ -15,7 +15,6 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="src\assets\images\articleimg\" />
-    <Folder Include="src\components\oldcard\" />
   </ItemGroup>
   <ItemGroup>
     <TypeScriptConfiguration Remove="src\components\newscards\**" />

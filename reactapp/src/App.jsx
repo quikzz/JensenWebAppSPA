@@ -7,7 +7,7 @@ export default class App extends Component {
 
     constructor(props) {
         super(props);
-        this.state = { articles: [], visibleArticles: 9, VisibleArticlesOld: 8, loading: true };
+        this.state = { articles: [], visibleArticles: 12, VisibleArticlesOld: 9, loading: true };
     }
 
     componentDidMount() {
@@ -37,16 +37,16 @@ export default class App extends Component {
     }
 
     loadMore = () => {
-        // Increase the number of visible articles by 9
+        // Increase the number of visible articles by 12
         this.setState(prevState => ({
-            visibleArticles: prevState.visibleArticles + 9,
+            visibleArticles: prevState.visibleArticles + 12,
         }));
     };
 
     loadLess = () => {
-        // Decrease the number of visible articles by 9
+        // Decrease the number of visible articles by 12
         this.setState(prevState => ({
-            visibleArticles: Math.max(prevState.visibleArticles - 9, 9),
+            visibleArticles: Math.max(prevState.visibleArticles - 12, 12),
         }));
     };
 

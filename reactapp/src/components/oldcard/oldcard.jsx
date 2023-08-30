@@ -1,19 +1,36 @@
-import React from 'react';
+﻿import React from 'react';
 import '@/components/oldcard/oldcard.css'
 
 const OldCard = ({ articles, VisibleArticlesOld, loadMoreOld, loadLessOld }) => {
-    const filteredArticles = articles.filter(articles => new Date(articles.published) < new Date());
+    const filteredArticles = articles.filter(article => new Date(article.published) < new Date());
+
     return (
         <div className="Other-card-layout">
-            {filteredArticles.slice(0, VisibleArticlesOld).map(article => (
-                <div className="Other-card" key={article.Id}>
-                    <a>{article.title}</a>
-                    <a href={article.link} target="_blank" rel="noopener noreferrer">
-                        Se mer
-                    </a>
-                    <a className="r">{article.published}</a>
-                </div>
-            ))}
+            <h2>Äldre nyheter</h2>
+            {filteredArticles.slice(0, VisibleArticlesOld).map(article => {
+                const publishedDate = new Date(article.published);
+                const formattedDate = publishedDate.toLocaleString('en-GB', {
+                    day: 'numeric',
+                    month: 'numeric',
+                    year: 'numeric',
+                    hour: 'numeric',
+                    minute: 'numeric',
+                    hour12: false,
+                });
+
+                return (
+                    <div className="Other-card" key={article.Id}>
+                        <div>
+                            <div>{article.title}</div>
+                            <a href={article.link} target="_blank" rel="noopener noreferrer">
+                                Se mer
+                            </a>
+                        </div>
+                        
+                        <div className="r">{formattedDate}</div>
+                    </div>
+                );
+            })}
             {VisibleArticlesOld < articles.length && (
                 <div className="text-center">
                     <button className="btn btn-primary mt-4 mr-2" onClick={loadMoreOld}>
@@ -25,7 +42,6 @@ const OldCard = ({ articles, VisibleArticlesOld, loadMoreOld, loadLessOld }) => 
                 </div>
             )}
         </div>
-
     );
 };
 
