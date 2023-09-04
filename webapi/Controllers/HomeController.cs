@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.AspNetCore.Authorization;
 using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,6 +7,7 @@ using System.Diagnostics;
 using MySql.Data.MySqlClient;
 using System.Globalization;
 using Microsoft.Data.SqlClient;
+using Microsoft.AspNetCore.Authorization;
 
 namespace webapi.Controllers
 {
@@ -17,7 +17,6 @@ namespace webapi.Controllers
     public class HomeController : ControllerBase
     {
         private readonly ILogger<HomeController> _logger;
-        private IList<Article> _articles;
 
         public HomeController(ILogger<HomeController> logger)
         {
@@ -30,25 +29,22 @@ namespace webapi.Controllers
             // Get all articles from the database
             List<Article> articles = GetArticlesFromDatabase();
 
-            // Get all the unique topics from the articles, trimming any whitespace and filtering out empty strings
-            // List<string> allTopics = articles.SelectMany(article => article.Topic.Split(',').Select(t => t.Trim())).Where(t => !string.IsNullOrWhiteSpace(t)).Distinct().ToList();
-
-            if(!string.IsNullOrEmpty(topic) && topic != "All")
+            if (!string.IsNullOrEmpty(topic) && topic != "All")
             {
                 articles = articles.Where(a => a.Topic.Contains(topic)).ToList();
             }
 
-            switch(sortBy)
+            switch (sortBy)
             {
                 case "newest":
-                articles = articles.OrderByDescending(a => a.Published).ToList();
-                break;
+                    articles = articles.OrderByDescending(a => a.Published).ToList();
+                    break;
                 case "oldest":
-                articles = articles.OrderBy(a => a.Published).ToList();
-                break;
+                    articles = articles.OrderBy(a => a.Published).ToList();
+                    break;
             }
 
-            return Ok(articles); // Changed from View()
+            return Ok(articles);
         }
 
         private List<Article> GetArticlesFromDatabase(bool ascending = true)
@@ -62,15 +58,15 @@ namespace webapi.Controllers
             // Create a list to hold Article objects
             List<Article> articles = new List<Article>();
 
-            using(MySqlConnection conn = new MySqlConnection(connStr))
+            using (MySqlConnection conn = new MySqlConnection(connStr))
             {
-                using(MySqlCommand cmd = new MySqlCommand(sql, conn))
+                using (MySqlCommand cmd = new MySqlCommand(sql, conn))
                 {
                     conn.Open();
-                    using(MySqlDataReader reader = cmd.ExecuteReader())
+                    using (MySqlDataReader reader = cmd.ExecuteReader())
                     {
                         // Loop through each row in the result set and create an Article object from the data
-                        while(reader.Read())
+                        while (reader.Read())
                         {
                             Article article = new Article();
                             article.Title = reader.GetString("title");
@@ -90,14 +86,14 @@ namespace webapi.Controllers
         [HttpGet("Privacy")]
         public IActionResult Privacy()
         {
-            return Ok(); // Changed from View()
+            return Ok();
         }
 
         [HttpGet("Error")]
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {
-            return Ok(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier }); // Changed from View()
+            return Ok(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
         }
     }
 }
