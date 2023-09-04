@@ -12,18 +12,17 @@ const NewsCard = ({ articles, visibleArticles, loadMore, loadLess, loading }) =>
                         <a href="https://aka.ms/jspsintegrationreact">https://aka.ms/jspsintegrationreact</a> for more details.</em>
                 </p>
             ) : (
-                <div className="news-container">
                     <div className="row">
                             {articles
-                                .filter(article => {
-                                    const publishedDate = new Date(article.published);
-                                    const today = new Date();
-                                    return (
-                                        publishedDate.getDate() === today.getDate() &&
-                                        publishedDate.getMonth() === today.getMonth() &&
-                                        publishedDate.getFullYear() === today.getFullYear()
-                                    );
-                                })
+                                //.filter(article => {
+                                //    const publishedDate = new Date(article.published);
+                                //    const today = new Date();
+                                //    return (
+                                //        publishedDate.getDate() === today.getDate() &&
+                                //        publishedDate.getMonth() === today.getMonth() &&
+                                //        publishedDate.getFullYear() === today.getFullYear()
+                                //    );
+                                //})
                                 .slice(0, visibleArticles)
                                 .map(article => {
                                     const publishedDate = new Date(article.published);
@@ -37,18 +36,11 @@ const NewsCard = ({ articles, visibleArticles, loadMore, loadLess, loading }) =>
                                     });
 
                                     return (
-                                        <div className="col-lg-3 col-md-4 mb-4" key={article.title}>
-                                            <Card style={{ width: '19rem', height: 'auto', marginBottom: '20px' }}>
+                                            <Card style={{ width: '19rem', height: 'auto', marginBottom: '20px', marginRight: '20px'}}>
                                                 <Card.Img variant="top" src={article.Image} style={{ objectFit: 'cover', maxHeight: '50%' }} />
                                                 <Card.Body style={{ display: 'flex', flexDirection: 'column' }}>
                                                     <Card.Title style={{height:'3rem' }}>{article.title}</Card.Title>
-                                                    <Card.Text style={{
-                                                        flex: '1',
-                                                        overflow: 'hidden',
-                                                        textOverflow: 'ellipsis',
-                                                        lineHeight: '1.5',
-                                                        maxHeight: '4.5em'
-                                                    }}>
+                                                    <Card.Text>
                                                         {article.summary}
                                                     </Card.Text>
                                                     <div>
@@ -64,10 +56,8 @@ const NewsCard = ({ articles, visibleArticles, loadMore, loadLess, loading }) =>
                                                     </div>
                                                 </Card.Body>
                                             </Card>
-                                        </div>
                                     );
                                 })}
-                    </div>
                     {visibleArticles < articles.length && (
                         <div className="text-center">
                             <button className="btn btn-primary mt-4 mr-2" onClick={loadMore}>

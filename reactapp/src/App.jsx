@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import NewsCard from '@/components/newscard/NewsCard';
+import NewsCard from '@/components/newscard/newscard';
 import OldCard from '@/components/oldcard/oldcard';
 
 export default class App extends Component {
