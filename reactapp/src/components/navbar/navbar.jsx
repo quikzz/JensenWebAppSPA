@@ -2,10 +2,18 @@
 import './navbar.css';
 import Weather from '@/components/weather/weather.jsx';
 import Settings from '@/components/optionsform/offcanvas.jsx';
+import { useDispatch } from 'react-redux';
+import { setTopic } from '@/redux/topicsortslice';
 //import Navbar from 'react-bootstrap/Navbar';
 
 var imgSrc = "./src/assets/images/";
 function navbar() {
+    const dispatch = useDispatch();
+
+    const handleTopicChange = (topic) => {
+        dispatch(setTopic(topic));
+    }
+
     return (
         <nav className="navbar navbar-expand-lg bg-body-tertiary">
             <div className="weather-container mx-5">
@@ -25,16 +33,16 @@ function navbar() {
                         <li className="nav-item col-md ">
                         </li>
                         <li className="nav-item">
-                        <a className="nav-link fs-3 me-4" href="#">Sport</a>
+                            <a className="nav-link fs-3 me-4" href="#" onClick={() => handleTopicChange("SamhalleKonflikter")}>SamhalleKonflikter</a>
                         </li>
                         <li className="nav-item fs-3 me-4">
-                            <a className="nav-link" href="#">Nöje</a>
+                            <a className="nav-link"  href="#" onClick={() => handleTopicChange("Idrott")}>Idrott</a>
                         </li>
                         <li className="nav-item fs-3 me-4">
-                            <a className="nav-link" href="#">Politik</a>
+                            <a className="nav-link"  href="#" onClick={() => handleTopicChange("Ekonomi")}>Ekonomi</a>
                         </li>
                         <li className="nav-item fs-3 me-4">
-                            <a className="nav-link" href="#">Kultur</a>
+                            <a className="nav-link" href="#" onClick={() => handleTopicChange("Kultur")}>Kultur</a>
                         </li>
                     </ul>
                     <form className="d-flex ms-3 p-2 " role="search">

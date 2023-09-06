@@ -1,31 +1,28 @@
-import React, { Component } from 'react';
+import React, { Component, useEffect } from 'react';
 import NewsCard from '@/components/newscard/newscard';
 import OldCard from '@/components/oldcard/oldcard';
+
 
 export default class App extends Component {
     static displayName = App.name;
 
     constructor(props) {
         super(props);
-        this.state = { articles: [], visibleArticles: 12, VisibleArticlesOld: 9, loading: true };
+        this.state = { articles: [], VisibleArticlesOld: 9, loading: true };
     }
 
+
+
     componentDidMount() {
-        this.populateArticleData();
+            this.populateArticleData();
     }
 
     render() {
-        const { articles, visibleArticles, VisibleArticlesOld, loading } = this.state;
+        const { articles, VisibleArticlesOld, loading } = this.state;
         
         return (
             <div>
-                <NewsCard
-                    articles={articles}
-                    visibleArticles={visibleArticles}
-                    loading={loading}
-                    loadMore={this.loadMore}
-                    loadLess={this.loadLess}
-                />
+                <NewsCard />
                 <OldCard
                     articles={articles}
                     VisibleArticlesOld={VisibleArticlesOld}
@@ -67,7 +64,8 @@ export default class App extends Component {
     };
 
     async populateArticleData() {
-        const response = await fetch('/home');
+        //const response = await fetch(`/home?topic=${searchTopic}&sortBy=${sorting}`);
+        const response = await fetch(`/home`);
         const data = await response.json();
         this.setState({ articles: data, loading: false });
     }
